@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Veiculo {
     
     private String marca;
@@ -14,7 +16,7 @@ public class Veiculo {
     public String getModelo() {
         return modelo;
     } 
-    public String setModelo(String modelo) {
+    public void setModelo(String modelo) {
         this.modelo = modelo;
     }
     public int getAno() {
@@ -29,16 +31,26 @@ public class Veiculo {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-}
-
-
-
-
-
-
-
     
+    public Veiculo(String marca, String modelo, int ano, String placa) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.placa = placa;
+    }
+
+    int calculaTempoUso() {
+        int anoAtual = LocalDate.now().getYear();
+        return anoAtual - this.ano;
+    }
+
+    void cadastrarVeiculo(String marca, String modelo, int ano, String placa) {
+        Veiculo novoVeiculo = new Veiculo(marca, modelo, ano, placa);
+        IO.println("Veículo Cadastrado:");
+    
+    }
 }
+
 
 
 // ======= Cadastro de Veículos OO =======
