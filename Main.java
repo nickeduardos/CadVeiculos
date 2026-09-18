@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-List<String> veiculos = new ArrayList<>();
+void main() {
 
-void Main() {
+    List<String> veiculos = new ArrayList<>();
+
     String menu = """
     ========== Cadastro De Veiculos ==========
     Selecione uma opção válida:
@@ -17,16 +18,14 @@ void Main() {
     do {
         IO.println(menu);
         opcao = Input.readint("Digite uma opção: ");
+    } while (opcao != 0); {
+        switch (opcao) {
+            case 1:
+                cadastrarVeiculo();
+                break;
+        
+            default:
+                break;
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
 }
