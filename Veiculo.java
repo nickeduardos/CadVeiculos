@@ -11,25 +11,49 @@ public class Veiculo {
         return marca;
     }
     public void setMarca(String marca) {
-        this.marca = marca;
+        if (!marca.isBlank())
+            this.marca = marca;
+        else 
+            IO.println();
+            IO.println("Erro! O campo não pode ser vazio.");
+            IO.readln("Pressione ENTER para retornar.");
+            return;
     }
     public String getModelo() {
         return modelo;
     } 
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        if (modelo.isBlank())
+            this.modelo = modelo;
+        else 
+            IO.println();
+            IO.println("Erro! O campo não pode ser vazio.");
+            IO.readln("Pressione ENTER para retornar.");
+            return;
     }
     public int getAno() {
         return ano;
     }
     public void setAno(int ano) {
-        this.ano = ano;
+        if (ano > 1900 && ano <= LocalDate.now().getYear() + 1)
+            this.ano = ano;
+        else
+            IO.println();
+            IO.println("Erro! O Veiculo não pode ter idade inferior a 1900.");
+            IO.readln("Pressione ENTER para retornar.");
+            return;
     }
     public String getPlaca() {
         return placa;
     }
     public void setPlaca(String placa) {
-        this.placa = placa;
+        if (!placa.isBlank())
+            this.placa = placa;
+        else 
+            IO.println();
+            IO.println("Erro! O campo não pode ser vazio.");
+            IO.readln("Pressione ENTER para retornar.");
+            return;
     }
     
     public Veiculo(String marca, String modelo, int ano, String placa) {
