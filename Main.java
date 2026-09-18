@@ -3,29 +3,51 @@ import java.util.List;
 
 void main() {
 
-    List<String> veiculos = new ArrayList<>();
+    List<Veiculo> veiculos = new ArrayList<>();
+
+    Functions functions = new Functions();
 
     String menu = """
-    ========== Cadastro De Veiculos ==========
-    Selecione uma opção válida:
-    [1] - Cadastrar Veículo
-    [2] - Listar Veículos
-    [3] - Consultar Veículo
-    [0] - Sair
-    """;
+            ========== Cadastro De Veiculos ==========
+
+            Selecione uma opção válida:
+
+            [1] - Cadastrar Veículo
+            [2] - Listar Veículos
+            [3] - Consultar Veículo
+            [0] - Sair
+            """;
 
     int opcao;
+
     do {
+
         IO.println(menu);
+
         opcao = Input.readint("Digite uma opção: ");
-    } while (opcao != 0); {
+
         switch (opcao) {
+
             case 1:
-                cadastrarVeiculo();
+                functions.cadastrarVeiculo(veiculos);
                 break;
-        
+
+            case 2:
+                functions.listarVeiculos(veiculos);
+                break;
+
+            case 3:
+                functions.consultarVeiculos(veiculos);
+                break;
+
+            case 0:
+                IO.println("Saindo do sistema...");
+                break;
+
             default:
+                IO.println("Opção inválida!");
                 break;
         }
-    }
+
+    } while (opcao != 0);
 }
