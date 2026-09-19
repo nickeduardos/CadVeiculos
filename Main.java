@@ -41,7 +41,7 @@ void main() {
                 break;
 
             case 0:
-                IO.println("Saindo do sistema...");
+                IO.readln("Pressione ENTER para sair do sistema.");
                 break;
 
             default:

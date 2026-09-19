@@ -7,11 +7,20 @@ public class Functions {
         IO.println("======= CADASTRAR VEICULO =======");
         String marca = IO.readln("Digite a marca do Veiculo que deseja cadastrar ou [0] para sair: ");
         String modelo = IO.readln("Digite o modelo do Veiculo: ");
-        int ano = Input.readint("Insira o ano do veículo (posterior a 1900).");
-        String placa = IO.readln("Digite a placa do Veiculo (Modelo Mercosul): ");
-        Veiculo novo = new Veiculo(marca, modelo, ano, placa);
-        veiculos.add(novo);
-        IO.println("Veículo cadastrado com sucesso!!");
+        int ano = Input.readint("Insira o ano do veículo (posterior a 1900). ");
+        if (ano < 1900) {
+            IO.println();
+            IO.println("Erro!, o ano não pode ser posterior a 1900.");
+            IO.readln("Pressione ENTER para retornar ao menu. ");
+            return;
+        }
+        else {
+            String placa = IO.readln("Digite a placa do Veiculo: ");
+            Veiculo novo = new Veiculo(marca, modelo, ano, placa);
+            veiculos.add(novo);
+            IO.println("Veículo cadastrado com sucesso!!");
+        }
+        
     }
 
     public void listarVeiculos(List<Veiculo> veiculos){
@@ -25,6 +34,8 @@ public class Functions {
         }
 
         for (Veiculo veiculo : veiculos) {
+            IO.println();
+            IO.println("Veiculo:");
             IO.println("Marca: " + veiculo.getMarca());
             IO.println("Modelo " + veiculo.getModelo());
             IO.println("Ano: " + veiculo.getAno());

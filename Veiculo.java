@@ -43,7 +43,7 @@ public class Veiculo {
     }
 
     public void setAno(int ano) {
-        if (ano > 1900 && ano <= LocalDate.now().getYear() + 1) {
+        if (ano >= 1900 && ano <= LocalDate.now().getYear() + 1) {
             this.ano = ano;
         } else {
             IO.println();
