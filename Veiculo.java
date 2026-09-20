@@ -47,7 +47,7 @@ public class Veiculo {
             this.ano = ano;
         } else {
             IO.println();
-            IO.println("Erro! O Veículo deve possuir um ano posterior a 1900.");
+            IO.println("Erro! O Veículo deve possuir um ano posterior a 1900 e anterior ao ano atual.");
             IO.readln("Pressione ENTER para retornar.");
         }
     }
@@ -72,10 +72,4 @@ public class Veiculo {
         setAno(ano);
         setPlaca(placa);
     }
-
-    int calculaTempoUso() {
-        int anoAtual = LocalDate.now().getYear();
-        return anoAtual - this.ano;
-    }
-
 }
